@@ -13,7 +13,7 @@
 
 ## 📌 Objective
 
-Build a machine learning system to predict the presence of heart disease in a patient using clinical medical data. The goal is to compare multiple classification algorithms and identify the best performing model based on key evaluation metrics.
+Build a machine learning system to predict the presence of heart disease in a patient using clinical medical data. Multiple classification algorithms are compared and evaluated to identify the best performing model.
 
 ---
 
@@ -34,7 +34,6 @@ Build a machine learning system to predict the presence of heart disease in a pa
 - **Records:** 1,025 patient records
 - **Features:** 13 medical attributes
 - **Target:** `0` = No Heart Disease, `1` = Heart Disease Present
-- **Note:** Dataset is loaded automatically in the notebook
 
 | Feature | Description |
 |---|---|
@@ -46,9 +45,9 @@ Build a machine learning system to predict the presence of heart disease in a pa
 | fbs | Fasting blood sugar > 120 mg/dl |
 | restecg | Resting ECG results (0–2) |
 | thalach | Maximum heart rate achieved |
-| exang | Exercise induced angina (1 = Yes) |
+| exang | Exercise induced angina |
 | oldpeak | ST depression induced by exercise |
-| slope | Slope of the peak exercise ST segment |
+| slope | Slope of peak exercise ST segment |
 | ca | Number of major vessels (0–3) |
 | thal | Thalassemia type |
 
@@ -58,10 +57,17 @@ Build a machine learning system to predict the presence of heart disease in a pa
 
 ```
 CodeAlpha_DiseasePrediction/
+├── image/
+│   ├── confusion matrix.png
+│   ├── feature analysis.png
+│   ├── feature importance.png
+│   ├── heatmap.png
+│   ├── model comparison.png
+│   └── target distribution.png
 ├── notebook/
-│   └── disease_prediction.ipynb    ← Main notebook
-├── requirements.txt
+│   └── disease_prediction (1).ipynb
 ├── .gitignore
+├── requirements.txt
 ├── LICENSE
 └── README.md
 ```
@@ -70,63 +76,78 @@ CodeAlpha_DiseasePrediction/
 
 ## 🚀 How to Run
 
-**Option 1 — Google Colab (Recommended, no setup needed)**
+**Option 1 — Google Colab (Recommended)**
 
-Click → [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rosesharma13/CodeAlpha_DiseasePrediction/blob/main/notebook/disease_prediction.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Rosesharma13/CodeAlpha_DiseasePrediction/blob/main/notebook/disease_prediction%20(1).ipynb)
 
 **Option 2 — Local Setup**
 
 ```bash
-# 1. Clone the repo
 git clone https://github.com/Rosesharma13/CodeAlpha_DiseasePrediction.git
 cd CodeAlpha_DiseasePrediction
-
-# 2. Install dependencies
 pip install -r requirements.txt
-
-# 3. Run notebook
-jupyter notebook notebook/disease_prediction.ipynb
+jupyter notebook notebook/disease_prediction\ \(1\).ipynb
 ```
 
 ---
 
 ## 📊 Exploratory Data Analysis (EDA)
 
-The dataset was explored to understand feature distributions, class balance, and correlations between medical attributes and heart disease presence.
+### 🔹 Target Distribution
+![Target Distribution](image/target%20distribution.png)
+Class balance between heart disease positive and negative patients.
 
-Key EDA steps:
-- Feature distribution analysis by target class
-- Correlation heatmap across all 13 features
-- Missing value check and data type validation
-- Class balance verification
+---
+
+### 🔹 Feature Analysis
+![Feature Analysis](image/feature%20analysis.png)
+Distribution of key medical features across the dataset.
+
+---
+
+### 🔹 Correlation Heatmap
+![Heatmap](image/heatmap.png)
+Relationships between features help identify the most predictive medical attributes.
 
 ---
 
 ## 🤖 Model Building & Comparison
 
-Four classification models were trained and evaluated:
+### 🔹 Model Comparison
+![Model Comparison](image/model%20comparison.png)
+All four models trained and compared using Accuracy, F1-Score, and ROC-AUC.
 
-- **Preprocessing:** StandardScaler for feature normalization
-- **Train/Test Split:** 80/20
-- **Evaluation Metrics:** Accuracy, Precision, Recall, F1-Score, ROC-AUC
+---
+
+## 🌲 Best Model Insights
+
+### 🔹 Feature Importance
+![Feature Importance](image/feature%20importance.png)
+Most influential medical features driving the prediction decision.
+
+---
+
+### 🔹 Confusion Matrix
+![Confusion Matrix](image/confusion%20matrix.png)
+Classification performance showing true positives, false positives, and error distribution.
 
 ---
 
 ## 📈 Results
 
-- Multiple models compared using accuracy and F1-score
-- Best model selected based on cross-validated ROC-AUC score
-- Confusion matrix analysis performed for the top model
-- Feature importance analysis reveals most predictive medical attributes
+- Four models benchmarked — best selected via ROC-AUC cross-validation
+- Confusion matrix analysis on best performing model
+- Feature importance reveals most predictive clinical attributes
+- Metrics: Accuracy, Precision, Recall, F1-Score, ROC-AUC
 
 ---
 
 ## 🔮 Future Improvements
 
-- Hyperparameter tuning using GridSearchCV
-- Deploy as a Streamlit web application
+- Hyperparameter tuning with GridSearchCV
+- Deploy as Streamlit web application
 - Add SHAP values for model explainability
-- Test on larger, real-world clinical datasets
+- Test on larger real-world clinical datasets
 
 ---
 
